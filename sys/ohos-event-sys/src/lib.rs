@@ -249,6 +249,51 @@ pub struct ArkUI_GridItemRect {
     #[doc = " Number of columns occupied by the <b>GridItem</b> component."]
     pub columnSpan: u32,
 }
+#[doc = " background."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_PickerIndicatorType_ARKUI_PICKER_INDICATOR_BACKGROUND: ArkUI_PickerIndicatorType =
+    0;
+#[doc = " divider."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_PickerIndicatorType_ARKUI_PICKER_INDICATOR_DIVIDER: ArkUI_PickerIndicatorType = 1;
+#[doc = " @brief Enumerates the selected indicator type of picker.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_PickerIndicatorType = u32;
+#[doc = " @brief Style parameters of background indicator.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_PickerIndicatorBackground {
+    #[doc = "  background color, 0xARGB format for example <b>0xFF1122FF</b>"]
+    pub backgroundColor: u32,
+    #[doc = " radius of the top left corner."]
+    pub topLeftRadius: f32,
+    #[doc = " radius of the top right corner"]
+    pub topRightRadius: f32,
+    #[doc = " radius of the bottom left corner"]
+    pub bottomLeftRadius: f32,
+    #[doc = " radius of the bottom right corner."]
+    pub bottomRightRadius: f32,
+}
+#[doc = " @brief Style parameters of divider indicator.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_PickerIndicatorDivider {
+    #[doc = " stroke width"]
+    pub strokeWidth: f32,
+    #[doc = " divider color, 0xARGB format for example <b>0xFF1122FF</b>"]
+    pub dividerColor: u32,
+    #[doc = " the distance between the divider and the beginning of the side of the picker (unit: vp)."]
+    pub startMargin: f32,
+    #[doc = " the distance between the divider and the end of the side of the picker (unit: vp)."]
+    pub endMargin: f32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_PickerIndicatorStyle {
+    _unused: [u8; 0],
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_GridLayoutOptions {
@@ -382,11 +427,21 @@ pub struct ArkUI_PixelRoundPolicy {
 pub struct ArkUI_ShowCounterConfig {
     _unused: [u8; 0],
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_TextContentBaseController {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_SelectedDragPreviewStyle {
+    _unused: [u8; 0],
+}
 #[doc = " @brief Defines the event callback type.\n\n @since 12"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_ContextCallback {
-    #[doc = " Custom type."]
+    #[doc = " Custom type, data of a user-defined type that is passed as a parameter during callbacks."]
     pub userData: *mut ::std::os::raw::c_void,
     #[doc = " Event callback."]
     pub callback:
@@ -396,11 +451,11 @@ pub struct ArkUI_ContextCallback {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union ArkUI_NumberValue {
-    #[doc = " Floating-point type."]
+    #[doc = " Floating-point type, used to store a floating-point value."]
     pub f32_: f32,
-    #[doc = " Signed integer."]
+    #[doc = " Signed integer, used to store a signed integer value."]
     pub i32_: i32,
-    #[doc = " Unsigned integer."]
+    #[doc = " Unsigned integer, used to store an unsigned integer value."]
     pub u32_: u32,
 }
 #[doc = " Top start."]
@@ -479,6 +534,12 @@ pub const ArkUI_TextAlignment_ARKUI_TEXT_ALIGNMENT_CENTER: ArkUI_TextAlignment =
 pub const ArkUI_TextAlignment_ARKUI_TEXT_ALIGNMENT_END: ArkUI_TextAlignment = 2;
 #[doc = " Aligned with both margins."]
 pub const ArkUI_TextAlignment_ARKUI_TEXT_ALIGNMENT_JUSTIFY: ArkUI_TextAlignment = 3;
+#[doc = " Aligned with left to right.\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const ArkUI_TextAlignment_ARKUI_TEXT_ALIGNMENT_LEFT_TO_RIGHT: ArkUI_TextAlignment = 4;
+#[doc = " Aligned with right to left.\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const ArkUI_TextAlignment_ARKUI_TEXT_ALIGNMENT_RIGHT_TO_LEFT: ArkUI_TextAlignment = 5;
 #[doc = " @brief Enumerates the text alignment mode.\n\n @since 12"]
 pub type ArkUI_TextAlignment = u32;
 #[doc = " Aligned to the baseline."]
@@ -512,6 +573,21 @@ pub const ArkUI_TextContentAlign_ARKUI_TEXT_CONTENT_ALIGN_BOTTOM: ArkUI_TextCont
 #[doc = " @brief Enumerates text content align styles.\n\n @since 21"]
 #[cfg(feature = "api-21")]
 pub type ArkUI_TextContentAlign = u32;
+#[doc = " The text direction is left to right."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_TextDirection_ARKUI_TEXT_DIRECTION_LTR: ArkUI_TextDirection = 0;
+#[doc = " The text direction is right to left."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_TextDirection_ARKUI_TEXT_DIRECTION_RTL: ArkUI_TextDirection = 1;
+#[doc = " The text direction follows the component layout."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_TextDirection_ARKUI_TEXT_DIRECTION_DEFAULT: ArkUI_TextDirection = 2;
+#[doc = " The text direction follows the actual text."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_TextDirection_ARKUI_TEXT_DIRECTION_AUTO: ArkUI_TextDirection = 3;
+#[doc = " @brief Enumerates the text text direction.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_TextDirection = u32;
 #[doc = " The Enter key is labeled \"Go.\""]
 pub const ArkUI_EnterKeyType_ARKUI_ENTER_KEY_TYPE_GO: ArkUI_EnterKeyType = 2;
 #[doc = " The Enter key is labeled \"Search.\""]
@@ -1927,6 +2003,14 @@ pub const ArkUI_ErrorCode_ARKUI_ERROR_CODE_FOCUS_NON_EXISTENT: ArkUI_ErrorCode =
 #[doc = " @error The snapshot taking is timeout.\n @since 15"]
 #[cfg(feature = "api-15")]
 pub const ArkUI_ErrorCode_ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_TIMEOUT: ArkUI_ErrorCode = 160002;
+#[doc = " @error The provided color space or dynamic range mode is not supported. For details about the error codes,\n see [Snapshot Error Codes](../apis-arkui/errorcode-snapshot.md).\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const ArkUI_ErrorCode_ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_MODE_NOT_SUPPORTED: ArkUI_ErrorCode =
+    160003;
+#[doc = " @error The isAuto parameter of the color space or dynamic range mode is set to true for offscreen node snapshot.\n For details about the error codes, see [Snapshot Error Codes](../apis-arkui/errorcode-snapshot.md).\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const ArkUI_ErrorCode_ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_AUTO_NOT_SUPPORTED: ArkUI_ErrorCode =
+    160004;
 #[doc = " The component is not a scroll container."]
 pub const ArkUI_ErrorCode_ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER: ArkUI_ErrorCode = 180001;
 #[doc = " The buffer is not large enough."]
@@ -2004,8 +2088,35 @@ pub const ArkUI_AnimationDirection_ARKUI_ANIMATION_DIRECTION_ALTERNATE: ArkUI_An
 #[doc = " The animation plays in reverse alternating loop mode. When the animation is played for an odd number of times,\n  the playback is in reverse direction. When the animation is played for an even number of times, the playback is\n  in forward direction."]
 pub const ArkUI_AnimationDirection_ARKUI_ANIMATION_DIRECTION_ALTERNATE_REVERSE:
     ArkUI_AnimationDirection = 3;
-#[doc = "/**\n @brief Enumerates the animation playback modes.\n\n @since 12"]
+#[doc = " @brief Enumerates the animation playback modes.\n\n @since 12"]
 pub type ArkUI_AnimationDirection = u32;
+#[doc = " Default effect."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_HoverEffect_ARKUI_HOVER_EFFECT_AUTO: ArkUI_HoverEffect = 0;
+#[doc = " Scale effect."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_HoverEffect_ARKUI_HOVER_EFFECT_SCALE: ArkUI_HoverEffect = 1;
+#[doc = " Highlight effect."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_HoverEffect_ARKUI_HOVER_EFFECT_HIGHLIGHT: ArkUI_HoverEffect = 2;
+#[doc = " No effect."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_HoverEffect_ARKUI_HOVER_EFFECT_NONE: ArkUI_HoverEffect = 3;
+#[doc = " @brief Enumerates the hover effects when a component is hovered over.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_HoverEffect = u32;
+#[doc = " Default priority."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_FocusPriority_ARKUI_FOCUS_PRIORITY_AUTO: ArkUI_FocusPriority = 0;
+#[doc = " Higher priority."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_FocusPriority_ARKUI_FOCUS_PRIORITY_PRIOR: ArkUI_FocusPriority = 2000;
+#[doc = " Previous focus priority."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_FocusPriority_ARKUI_FOCUS_PRIORITY_PREVIOUS: ArkUI_FocusPriority = 3000;
+#[doc = " @brief Enumerates the priority levels for focus management within the application.\n These levels determine the sequence in which UI components receive focus during user interaction.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_FocusPriority = u32;
 #[doc = " Finger drag."]
 pub const ArkUI_ScrollSource_ARKUI_SCROLL_SOURCE_DRAG: ArkUI_ScrollSource = 0;
 #[doc = " Inertial roll after finger drag."]
@@ -2286,29 +2397,6 @@ pub const ArkUI_CornerDirection_ARKUI_CORNER_DIRECTION_BOTTOM_RIGHT: ArkUI_Corne
 #[doc = " @brief Enumerates the corner derection.\n\n @since 20"]
 #[cfg(feature = "api-20")]
 pub type ArkUI_CornerDirection = u32;
-#[doc = " When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.\n When the List direction is horizontal, it indicates the top."]
-#[cfg(feature = "api-21")]
-pub const ArkUI_ListItemSwipeActionDirection_ARKUI_LIST_ITEM_SWIPE_ACTION_DIRECTION_START:
-    ArkUI_ListItemSwipeActionDirection = 0;
-#[doc = " When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.\n When the List direction is horizontal, it indicates the bottom."]
-#[cfg(feature = "api-21")]
-pub const ArkUI_ListItemSwipeActionDirection_ARKUI_LIST_ITEM_SWIPE_ACTION_DIRECTION_END:
-    ArkUI_ListItemSwipeActionDirection = 1;
-#[doc = " @brief Define the direction to expand the swipe action.\n\n @since 21"]
-#[cfg(feature = "api-21")]
-pub type ArkUI_ListItemSwipeActionDirection = u32;
-#[doc = " The component fills its parent, which means its size is as large as its parent"]
-#[cfg(feature = "api-21")]
-pub const ArkUI_LayoutPolicy_ARKUI_LAYOUTPOLICY_MATCHPARENT: ArkUI_LayoutPolicy = 0;
-#[doc = " The component fills its content, which means its size is as large as its children but it is constrained\n by its parent."]
-#[cfg(feature = "api-21")]
-pub const ArkUI_LayoutPolicy_ARKUI_LAYOUTPOLICY_WRAPCONTENT: ArkUI_LayoutPolicy = 1;
-#[doc = " The component fills its content which means its size is as large as its children."]
-#[cfg(feature = "api-21")]
-pub const ArkUI_LayoutPolicy_ARKUI_LAYOUTPOLICY_FIXATIDEALSIZE: ArkUI_LayoutPolicy = 2;
-#[doc = " @brief Enumerates the LayoutPolicy.\n\n @since 21"]
-#[cfg(feature = "api-21")]
-pub type ArkUI_LayoutPolicy = u32;
 #[doc = " No Force round the component boundary coordinates to integer pixel."]
 #[cfg(feature = "api-21")]
 pub const ArkUI_PixelRoundCalcPolicy_ARKUI_PIXELROUNDCALCPOLICY_NOFORCEROUND:
@@ -2324,6 +2412,134 @@ pub const ArkUI_PixelRoundCalcPolicy_ARKUI_PIXELROUNDCALCPOLICY_FORCEFLOOR:
 #[doc = " @brief Enumerates the PixelRoundPolicy.\n\n @since 21"]
 #[cfg(feature = "api-21")]
 pub type ArkUI_PixelRoundCalcPolicy = u32;
+#[doc = " Determine whether to pop up the menu according to the underlying default logic."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_MenuPolicy_ARKUI_MENU_POLICY_DEFAULT: ArkUI_MenuPolicy = 0;
+#[doc = " Never pop up the menu."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_MenuPolicy_ARKUI_MENU_POLICY_HIDE: ArkUI_MenuPolicy = 1;
+#[doc = " Always pop up the menu."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_MenuPolicy_ARKUI_MENU_POLICY_SHOW: ArkUI_MenuPolicy = 2;
+#[doc = " @brief Menu pop-up strategy.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_MenuPolicy = u32;
+#[doc = " When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.\n When the List direction is horizontal, it indicates the top."]
+#[cfg(feature = "api-21")]
+pub const ArkUI_ListItemSwipeActionDirection_ARKUI_LIST_ITEM_SWIPE_ACTION_DIRECTION_START:
+    ArkUI_ListItemSwipeActionDirection = 0;
+#[doc = " When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.\n When the List direction is horizontal, it indicates the bottom."]
+#[cfg(feature = "api-21")]
+pub const ArkUI_ListItemSwipeActionDirection_ARKUI_LIST_ITEM_SWIPE_ACTION_DIRECTION_END:
+    ArkUI_ListItemSwipeActionDirection = 1;
+#[doc = " @brief Define the direction to expand the swipe action.\n\n @since 21"]
+#[cfg(feature = "api-21")]
+pub type ArkUI_ListItemSwipeActionDirection = u32;
+#[doc = " All input tool types."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_ResponseRegionSupportedTool_ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_ALL:
+    ArkUI_ResponseRegionSupportedTool = 0;
+#[doc = " Finger input."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_ResponseRegionSupportedTool_ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_FINGER:
+    ArkUI_ResponseRegionSupportedTool = 1;
+#[doc = " Stylus input."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_ResponseRegionSupportedTool_ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_PEN:
+    ArkUI_ResponseRegionSupportedTool = 2;
+#[doc = " Mouse input."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_ResponseRegionSupportedTool_ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_MOUSE:
+    ArkUI_ResponseRegionSupportedTool = 3;
+#[doc = " @brief Enumerates the input tool types supported for response region configuration.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_ResponseRegionSupportedTool = u32;
+#[doc = " Default non-safe area of the system, including the status bar and navigation bar."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LayoutSafeAreaType_ARKUI_LAYOUT_SAFE_AREA_TYPE_SYSTEM: ArkUI_LayoutSafeAreaType = 1;
+#[doc = " @brief Define the types for expanding the safe area in layout.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_LayoutSafeAreaType = u32;
+#[doc = " Top edge of the safe area."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LayoutSafeAreaEdge_ARKUI_LAYOUT_SAFE_AREA_EDGE_TOP: ArkUI_LayoutSafeAreaEdge = 1;
+#[doc = " Bottom edge of the safe area."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LayoutSafeAreaEdge_ARKUI_LAYOUT_SAFE_AREA_EDGE_BOTTOM: ArkUI_LayoutSafeAreaEdge = 2;
+#[doc = " Start edge of the safe area."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LayoutSafeAreaEdge_ARKUI_LAYOUT_SAFE_AREA_EDGE_START: ArkUI_LayoutSafeAreaEdge = 4;
+#[doc = " End edge of the safe area."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LayoutSafeAreaEdge_ARKUI_LAYOUT_SAFE_AREA_EDGE_END: ArkUI_LayoutSafeAreaEdge = 8;
+#[doc = " Vertical edge of the safe area."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LayoutSafeAreaEdge_ARKUI_LAYOUT_SAFE_AREA_EDGE_VERTICAL: ArkUI_LayoutSafeAreaEdge =
+    3;
+#[doc = " Horizontal edge of the safe area."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LayoutSafeAreaEdge_ARKUI_LAYOUT_SAFE_AREA_EDGE_HORIZONTAL:
+    ArkUI_LayoutSafeAreaEdge = 12;
+#[doc = " All edges of the safe area."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LayoutSafeAreaEdge_ARKUI_LAYOUT_SAFE_AREA_EDGE_ALL: ArkUI_LayoutSafeAreaEdge = 15;
+#[doc = " @brief Define the edges for expanding the safe area in layout.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_LayoutSafeAreaEdge = u32;
+#[doc = " Top start."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_TOP_START: ArkUI_LocalizedAlignment =
+    0;
+#[doc = " Top center."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_TOP: ArkUI_LocalizedAlignment = 1;
+#[doc = " Top end."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_TOP_END: ArkUI_LocalizedAlignment = 2;
+#[doc = " Vertically centered start."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_START: ArkUI_LocalizedAlignment = 3;
+#[doc = " Horizontally and vertically centered."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_CENTER: ArkUI_LocalizedAlignment = 4;
+#[doc = " Vertically centered end."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_END: ArkUI_LocalizedAlignment = 5;
+#[doc = " Bottom start."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_BOTTOM_START:
+    ArkUI_LocalizedAlignment = 6;
+#[doc = " Horizontally centered on the bottom."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_BOTTOM: ArkUI_LocalizedAlignment = 7;
+#[doc = " Bottom end."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_LocalizedAlignment_ARKUI_LOCALIZED_ALIGNMENT_BOTTOM_END: ArkUI_LocalizedAlignment =
+    8;
+#[doc = " @brief Enumerates the localizedAlignment modes.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_LocalizedAlignment = u32;
+#[doc = " The current component and its child components will be drawn directly onto the screen canvas."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_RenderStrategy_ARKUI_RENDERSTRATEGY_FAST: ArkUI_RenderStrategy = 0;
+#[doc = " The current component and its child components will first be drawn onto an off-screen canvas,\n     then undergo some graphic rendering operations, and finally be drawn onto the main canvas."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_RenderStrategy_ARKUI_RENDERSTRATEGY_OFFSCREEN: ArkUI_RenderStrategy = 1;
+#[doc = " @brief Enumerates the graphics rendering strategy.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_RenderStrategy = u32;
+#[doc = " The component fills its parent, which means its size is as large as its parent"]
+#[cfg(feature = "api-21")]
+pub const ArkUI_LayoutPolicy_ARKUI_LAYOUTPOLICY_MATCHPARENT: ArkUI_LayoutPolicy = 0;
+#[doc = " The component fills its content, which means its size is as large as its children but it is constrained\n by its parent."]
+#[cfg(feature = "api-21")]
+pub const ArkUI_LayoutPolicy_ARKUI_LAYOUTPOLICY_WRAPCONTENT: ArkUI_LayoutPolicy = 1;
+#[doc = " The component fills its content which means its size is as large as its children."]
+#[cfg(feature = "api-21")]
+pub const ArkUI_LayoutPolicy_ARKUI_LAYOUTPOLICY_FIXATIDEALSIZE: ArkUI_LayoutPolicy = 2;
+#[doc = " @brief Enumerates the LayoutPolicy.\n\n @since 21"]
+#[cfg(feature = "api-21")]
+pub type ArkUI_LayoutPolicy = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_SystemFontStyleEvent {
@@ -2342,6 +2558,11 @@ pub struct ArkUI_TextPickerRangeContentArray {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_TextCascadePickerRangeContentArray {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_SelectionOptions {
     _unused: [u8; 0],
 }
 extern "C" {
@@ -3978,6 +4199,24 @@ extern "C" {
         scale: f32,
     ) -> i32;
 }
+extern "C" {
+    #[doc = " @brief Sets the color mode for snapshot capture.\n By default, snapshots are captured in SRGB mode, which may lose visual effects for components using wide color\n gamut display modes.\n If the target component's color space is known, specify it through <b>colorSpace</b> and set <b>isAuto</b> to\n <b>false</b> to achieve optimal snapshot quality.\n Since determining the exact color space used by a component is often difficult, set <b>isAuto</b> to <b>true</b>\n to let the system automatically select the appropriate color space.\n If <b>isAuto</b> is set to <b>true</b>, the <b>colorSpace</b> parameter value is ignored.\n\n @param snapshotOptions Pointer to the target snapshot configuration options.\n @param colorSpace Target color space. Supported values: <b>3</b> (DISPLAY_P3), <b>4</b> (SRGB), <b>27</b>\n                   (DISPLAY_BT2020_SRGB).\n @param isAuto Whether to auto-detect the color space.\n               <b>true</b>: ignores the <b>colorSpace</b> parameter value and auto-detects the color space.\n               <b>false</b>: uses the color space specified by <b>colorSpace</b>.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SnapshotOptions_SetColorMode(
+        snapshotOptions: *mut ArkUI_SnapshotOptions,
+        colorSpace: i32,
+        isAuto: bool,
+    ) -> i32;
+}
+extern "C" {
+    #[doc = " @brief Sets the dynamic range mode for snapshot capture.\n By default, the system captures snapshots in {@link ARKUI_DYNAMIC_RANGE_MODE_STANDARD} mode.\n To use a specific mode, specify it via the <b>dynamicRangeMode</b> parameter and set <b>isAuto</b> to <b>false</b>.\n Alternatively, set <b>isAuto</b> to <b>true</b> to let the system auto-detect the appropriate dynamic range mode.\n If <b>isAuto</b> is set to <b>true</b>, the <b>dynamicRangeMode</b> parameter value is ignored.\n\n @param snapshotOptions Pointer to the target snapshot configuration options.\n @param dynamicRangeMode Target dynamic range mode, specified using {@link ArkUI_DynamicRangeMode}.\n @param isAuto Whether to auto-detect the dynamic range mode.\n               <b>true</b>: ignores the <b>dynamicRangeMode</b> parameter value and auto-detects the dynamic range\n                            mode.\n               <b>false</b>: uses the dynamic range mode specified by <b>dynamicRangeMode</b>.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SnapshotOptions_SetDynamicRangeMode(
+        snapshotOptions: *mut ArkUI_SnapshotOptions,
+        dynamicRangeMode: i32,
+        isAuto: bool,
+    ) -> i32;
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_VisibleAreaEventOptions {
@@ -4286,6 +4525,46 @@ extern "C" {
         policy: *mut ArkUI_PixelRoundPolicy,
         value: *mut ArkUI_PixelRoundCalcPolicy,
     ) -> i32;
+}
+extern "C" {
+    #[doc = " @brief Creates a configuration object for textField's counter.\n\n @return A pointer to the configuration object.\n @since 22"]
+    #[cfg(feature = "api-22")]
+    pub fn OH_ArkUI_ShowCounterConfig_Create() -> *mut ArkUI_ShowCounterConfig;
+}
+extern "C" {
+    #[doc = " @brief Disposes a configuration object for textField's counter.\n\n @param config Pointer to the configuration object to be disposed.\n @since 22"]
+    #[cfg(feature = "api-22")]
+    pub fn OH_ArkUI_ShowCounterConfig_Dispose(config: *mut ArkUI_ShowCounterConfig);
+}
+extern "C" {
+    #[doc = " @brief Sets the color of counter when textField hasn't wanted to exceed the maximum character count.\n\n @param config Pointer to the configuration object to be modified.\n @param color The color of the counter when textField hasn't wanted to exceed the maximum character count, in 0xARGB format.\n @since 22"]
+    #[cfg(feature = "api-22")]
+    pub fn OH_ArkUI_ShowCounterConfig_SetCounterTextColor(
+        config: *mut ArkUI_ShowCounterConfig,
+        color: u32,
+    );
+}
+extern "C" {
+    #[doc = " @brief Sets the color of counter when textField wants to exceed the maximum character count.\n\n @param config Pointer to the configuration object to be modified.\n @param color The color of the counter when textField wants to exceed the maximum character count, in 0xARGB format.\n @since 22"]
+    #[cfg(feature = "api-22")]
+    pub fn OH_ArkUI_ShowCounterConfig_SetCounterTextOverflowColor(
+        config: *mut ArkUI_ShowCounterConfig,
+        color: u32,
+    );
+}
+extern "C" {
+    #[doc = " @brief Gets the color of counter when textField hasn't wanted to exceed the maximum character count.\n\n @param config Pointer to the configuration object.\n @return Returns the color of the counter when textField hasn't wanted to exceed the maximum character count, in 0xARGB format.\n @since 22"]
+    #[cfg(feature = "api-22")]
+    pub fn OH_ArkUI_ShowCounterConfig_GetCounterTextColor(
+        config: *mut ArkUI_ShowCounterConfig,
+    ) -> u32;
+}
+extern "C" {
+    #[doc = " @brief Gets the color of counter when textField wants to exceed the maximum character count.\n\n @param config Pointer to the configuration object.\n @return Returns the color of the counter when textField wants to exceed the maximum character count, in 0xARGB format.\n @since 22"]
+    #[cfg(feature = "api-22")]
+    pub fn OH_ArkUI_ShowCounterConfig_GetCounterTextOverflowColor(
+        config: *mut ArkUI_ShowCounterConfig,
+    ) -> u32;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4660,44 +4939,335 @@ extern "C" {
     ) -> ArkUI_ErrorCode;
 }
 extern "C" {
-    #[doc = " @brief Creates a configuration object for textField's counter.\n\n @return A pointer to the configuration object.\n @since 22"]
-    #[cfg(feature = "api-22")]
-    pub fn OH_ArkUI_ShowCounterConfig_Create() -> *mut ArkUI_ShowCounterConfig;
+    #[doc = " @brief Create selection options.\n\n @return A pointer to the selection options object.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SelectionOptions_Create() -> *mut ArkUI_SelectionOptions;
 }
 extern "C" {
-    #[doc = " @brief Disposes a configuration object for textField's counter.\n\n @param config Pointer to the configuration object to be disposed.\n @since 22"]
-    #[cfg(feature = "api-22")]
-    pub fn OH_ArkUI_ShowCounterConfig_Dispose(config: *mut ArkUI_ShowCounterConfig);
+    #[doc = " @brief Dispose selection options object.\n\n @param {ArkUI_SelectionOptions*} options Pointer to the selection options object. to be disposed.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SelectionOptions_Dispose(options: *mut ArkUI_SelectionOptions);
 }
 extern "C" {
-    #[doc = " @brief Sets the color of counter when textField hasn't wanted to exceed the maximum character count.\n\n @param config Pointer to the configuration object to be modified.\n @param color The color of the counter when textField hasn't wanted to exceed the maximum character count, in 0xARGB format.\n @since 22"]
-    #[cfg(feature = "api-22")]
-    pub fn OH_ArkUI_ShowCounterConfig_SetCounterTextColor(
-        config: *mut ArkUI_ShowCounterConfig,
+    #[doc = " @brief Sets the menu policy for selection options.\n\n @param {ArkUI_SelectionOptions*} options Pointer to the selection options.\n @param {ArkUI_MenuPolicy} menuPolicy The menu policy.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SelectionOptions_SetMenuPolicy(
+        options: *mut ArkUI_SelectionOptions,
+        menuPolicy: ArkUI_MenuPolicy,
+    );
+}
+extern "C" {
+    #[doc = " @brief Gets the menu policy of selection options.\n\n @param {ArkUI_SelectionOptions*} options Pointer to the selection options object.\n @return Returns the menu policy.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SelectionOptions_GetMenuPolicy(
+        options: *mut ArkUI_SelectionOptions,
+    ) -> ArkUI_MenuPolicy;
+}
+extern "C" {
+    #[doc = " @brief Create an object of the text content base controller.\n\n @return A pointer to the controller object.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextContentBaseController_Create() -> *mut ArkUI_TextContentBaseController;
+}
+extern "C" {
+    #[doc = " @brief Dispose an object of the text content base controller.\n\n @param {ArkUI_TextContentBaseController*} controller Pointer to the controller object to be disposed.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextContentBaseController_Dispose(
+        controller: *mut ArkUI_TextContentBaseController,
+    );
+}
+extern "C" {
+    #[doc = " @brief Delete the character before the caret of the input field component in editing state.\n        Otherwise, delete the last character of the input field component.\n\n @param {ArkUI_TextContentBaseController*} controller Pointer to the configuration object to be modified.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextContentBaseController_DeleteBackward(
+        controller: *mut ArkUI_TextContentBaseController,
+    );
+}
+extern "C" {
+    #[doc = " @brief Scroll the input field component to make the specified content visible.\n\n @param {ArkUI_TextContentBaseController*} controller Pointer to the\n configuration object to be modified.\n @param {int32_t} start The start offset of the content to be made visible.\n @param {int32_t} end The end offset of the content to be made visible\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextContentBaseController_ScrollToVisible(
+        controller: *mut ArkUI_TextContentBaseController,
+        start: i32,
+        end: i32,
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_MotionPathOptions {
+    _unused: [u8; 0],
+}
+extern "C" {
+    #[doc = " @brief Create an object of the motion path options for path animation.\n        In the newly created ArkUI_MotionPathOptions, the \"path\" value is an empty string, the \"from\" value is 0,\n        the \"to\" value is 1, and the \"rotatable\" value is false.\n\n @return A pointer to the ArkUI_MotionPathOptions.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_Create() -> *mut ArkUI_MotionPathOptions;
+}
+extern "C" {
+    #[doc = " @brief Dispose the ArkUI_MotionPathOptions object.\n\n @param options Pointer to the ArkUI_MotionPathOptions object to be disposed.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_Dispose(options: *mut ArkUI_MotionPathOptions);
+}
+extern "C" {
+    #[doc = " @brief Sets the the motion path for the animation using an SVG path string. The path supports using \"start\" and\n        \"end\" as placeholders for the starting and ending points, for example:\n        \"Mstart.x start.y L50 50 Lend.x end.y Z\". Refer to the SVG path format for the path string.\n        When set to an empty string, it is equivalent to not setting a path animation.\n\n @param options Pointer to the ArkUI_MotionPathOptions object.\n @param svgPath The motion path for the path animation.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter exception occurs.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_SetPath(
+        options: *mut ArkUI_MotionPathOptions,
+        svgPath: *const ::std::os::raw::c_char,
+    ) -> ArkUI_ErrorCode;
+}
+extern "C" {
+    #[doc = " @brief Gets the motion path string in the ArkUI_MotionPathOptions object.\n\n @param options Pointer to the ArkUI_MotionPathOptions object.\n @param svgPathBuffer Buffer pointer to the motion path string.\n @param bufferSize The buffer size of the svgPathBuffer parameter.\n @param writeLength Indicates the string length actually written to the buffer\n                    when returning {@link ARKUI_ERROR_CODE_NO_ERROR}.\n                    Indicates the minimum buffer size that can accommodate the target\n                    when {@link ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR} is returned.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter exception occurs.\n         Returns {@link ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR} if the buffer size is less than the minimum buffer size.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_GetPath(
+        options: *const ArkUI_MotionPathOptions,
+        svgPathBuffer: *mut ::std::os::raw::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> ArkUI_ErrorCode;
+}
+extern "C" {
+    #[doc = " @brief Sets the starting progress in the ArkUI_MotionPathOptions. Progress refers to the ratio of the length of the\n        path that has been traveled to the total length of the entire path. The value range is [0.0, 1.0], and the\n        \"from\" value should be less than or equal to the \"to\" value; otherwise, an ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE\n        error code will be returned.\n\n @param options Pointer to the ArkUI_MotionPathOptions object.\n @param from The starting progress in the ArkUI_MotionPathOptions.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter exception occurs.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE} if the \"from\" value is out of range or the \"from\" value\n                 is greater than the \"to\" value.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_SetFrom(
+        options: *mut ArkUI_MotionPathOptions,
+        from: f32,
+    ) -> ArkUI_ErrorCode;
+}
+extern "C" {
+    #[doc = " @brief Gets the starting progress in the ArkUI_MotionPathOptions object.\n\n @param options Pointer to the ArkUI_MotionPathOptions object.\n @param from The starting progress in the ArkUI_MotionPathOptions.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter exception occurs.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_GetFrom(
+        options: *const ArkUI_MotionPathOptions,
+        from: *mut f32,
+    ) -> ArkUI_ErrorCode;
+}
+extern "C" {
+    #[doc = " @brief Sets the endpoint progress in the ArkUI_MotionPathOptions. Progress refers to the ratio of the length of the\n        path that has been traveled to the total length of the entire path. The value range is [0.0, 1.0], and the\n        \"from\" value should be less than or equal to the \"to\" value; otherwise, an ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE\n        error code will be returned.\n\n @param options Pointer to the ArkUI_MotionPathOptions object.\n @param to The endpoint progress in the ArkUI_MotionPathOptions.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter exception occurs.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE} if the \"to\" value is out of range or the \"to\" value\n                 is less than the \"from\" value.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_SetTo(
+        options: *mut ArkUI_MotionPathOptions,
+        to: f32,
+    ) -> ArkUI_ErrorCode;
+}
+extern "C" {
+    #[doc = " @brief Gets the endpoint progress in the ArkUI_MotionPathOptions object.\n\n @param options Pointer to the ArkUI_MotionPathOptions object.\n @param to The endpoint progress in the ArkUI_MotionPathOptions.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter exception occurs.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_GetTo(
+        options: *const ArkUI_MotionPathOptions,
+        to: *mut f32,
+    ) -> ArkUI_ErrorCode;
+}
+extern "C" {
+    #[doc = " @brief Sets the rotatable parameter in the ArkUI_MotionPathOptions. It indicates whether to rotate along the path.\n        True means rotating along the path, while false means not rotating along the path.\n\n @param options Pointer to the ArkUI_MotionPathOptions object.\n @param rotatable The rotatable parameter in the ArkUI_MotionPathOptions.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter exception occurs.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_SetRotatable(
+        options: *mut ArkUI_MotionPathOptions,
+        rotatable: bool,
+    ) -> ArkUI_ErrorCode;
+}
+extern "C" {
+    #[doc = " @brief Gets the rotatable parameter in the ArkUI_MotionPathOptions.\n\n @param options Pointer to the ArkUI_MotionPathOptions object.\n @param rotatable The rotatable parameter in the ArkUI_MotionPathOptions.\n @return Returns the result code.\n         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter exception occurs.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_MotionPathOptions_GetRotatable(
+        options: *const ArkUI_MotionPathOptions,
+        rotatable: *mut bool,
+    ) -> ArkUI_ErrorCode;
+}
+#[doc = " Start marquee in any case. This is the default policy."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_MarqueeStartPolicy_ARKUI_MARQUEESTARTPOLICY_DEFAULT: ArkUI_MarqueeStartPolicy = 0;
+#[doc = " Start marquee only when get focus."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_MarqueeStartPolicy_ARKUI_MARQUEESTARTPOLICY_ONFOCUS: ArkUI_MarqueeStartPolicy = 1;
+#[doc = " @brief Enumerates the MarqueeStartPolicy.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_MarqueeStartPolicy = u32;
+#[doc = " Reset scroll position and restart scroll."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_MarqueeUpdatePolicy_ARKUI_MARQUEEUPDATEPOLICY_DEFAULT: ArkUI_MarqueeUpdatePolicy =
+    0;
+#[doc = " Preserve scroll position, just change to new text."]
+#[cfg(feature = "api-23")]
+pub const ArkUI_MarqueeUpdatePolicy_ARKUI_MARQUEEUPDATEPOLICY_PRESERVEPOSITION:
+    ArkUI_MarqueeUpdatePolicy = 1;
+#[doc = " @brief Enumerates the MarqueeUpdatePolicy.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub type ArkUI_MarqueeUpdatePolicy = u32;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_TextMarqueeOptions {
+    _unused: [u8; 0],
+}
+extern "C" {
+    #[doc = " @brief Create an option object for marquee animation of text.\n\n @return A pointer to the option object.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_Create() -> *mut ArkUI_TextMarqueeOptions;
+}
+extern "C" {
+    #[doc = " @brief Dispose the option object for marquee animation of text.\n\n @param option Pointer to the option object to be disposed.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_Dispose(option: *mut ArkUI_TextMarqueeOptions);
+}
+extern "C" {
+    #[doc = " @brief Sets the start flag of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param start Flag of is need to start marquee. True means start marquee, false means stop marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetStart(option: *mut ArkUI_TextMarqueeOptions, start: bool);
+}
+extern "C" {
+    #[doc = " @brief Gets the start flag of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the start flag.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetStart(option: *mut ArkUI_TextMarqueeOptions) -> bool;
+}
+extern "C" {
+    #[doc = " @brief Sets the step size of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param step The step size of the marquee. The unit is vp.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetStep(option: *mut ArkUI_TextMarqueeOptions, step: f32);
+}
+extern "C" {
+    #[doc = " @brief Gets the step size of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the step size of the marquee. The unit is vp.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetStep(option: *mut ArkUI_TextMarqueeOptions) -> f32;
+}
+extern "C" {
+    #[doc = " @brief Sets the spacing between two rounds of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param spacing The spacing between two rounds of marquee. The unit is vp.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetSpacing(
+        option: *mut ArkUI_TextMarqueeOptions,
+        spacing: f32,
+    );
+}
+extern "C" {
+    #[doc = " @brief Gets the spacing between two rounds of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the spacing between two rounds of marquee. The unit is vp.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetSpacing(option: *mut ArkUI_TextMarqueeOptions) -> f32;
+}
+extern "C" {
+    #[doc = " @brief Sets the rounds of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param loop The rounds of the marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetLoop(option: *mut ArkUI_TextMarqueeOptions, loop_: i32);
+}
+extern "C" {
+    #[doc = " @brief Gets the rounds of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the rounds of the marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetLoop(option: *mut ArkUI_TextMarqueeOptions) -> i32;
+}
+extern "C" {
+    #[doc = " @brief Sets the fromStart flag of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param fromStart The running direction of the marquee, true means running from start.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetFromStart(
+        option: *mut ArkUI_TextMarqueeOptions,
+        fromStart: bool,
+    );
+}
+extern "C" {
+    #[doc = " @brief Gets the fromStart flag of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the fromStart flag.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetFromStart(option: *mut ArkUI_TextMarqueeOptions) -> bool;
+}
+extern "C" {
+    #[doc = " @brief Sets the delay time between each round of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param delay The delay time between each round of the marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetDelay(option: *mut ArkUI_TextMarqueeOptions, delay: i32);
+}
+extern "C" {
+    #[doc = " @brief Gets the delay time between each round of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the delay time between each round of the marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetDelay(option: *mut ArkUI_TextMarqueeOptions) -> i32;
+}
+extern "C" {
+    #[doc = " @brief Sets the fadeout flag of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param fadeout The flag of whether the text is faded out.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetFadeout(
+        option: *mut ArkUI_TextMarqueeOptions,
+        fadeout: bool,
+    );
+}
+extern "C" {
+    #[doc = " @brief Gets the fadeout flag of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the fadeout flag.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetFadeout(option: *mut ArkUI_TextMarqueeOptions) -> bool;
+}
+extern "C" {
+    #[doc = " @brief Sets the start policy of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param startPolicy The start policy for marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetStartPolicy(
+        option: *mut ArkUI_TextMarqueeOptions,
+        startPolicy: ArkUI_MarqueeStartPolicy,
+    );
+}
+extern "C" {
+    #[doc = " @brief Gets the start policy of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the start policy for marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetStartPolicy(
+        option: *mut ArkUI_TextMarqueeOptions,
+    ) -> ArkUI_MarqueeStartPolicy;
+}
+extern "C" {
+    #[doc = " @brief Sets the update policy of the option object for marquee animation of text.\n\n @param option Pointer to the option object to be modified.\n @param updatePolicy The update policy for marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_SetUpdatePolicy(
+        option: *mut ArkUI_TextMarqueeOptions,
+        updatePolicy: ArkUI_MarqueeUpdatePolicy,
+    );
+}
+extern "C" {
+    #[doc = " @brief Gets the update policy of the option object for marquee animation of text.\n\n @param option Pointer to the option object.\n @return Returns the update policy for marquee.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_TextMarqueeOptions_GetUpdatePolicy(
+        option: *mut ArkUI_TextMarqueeOptions,
+    ) -> ArkUI_MarqueeUpdatePolicy;
+}
+extern "C" {
+    #[doc = " @brief Create a configuration object for selected drag preview style.\n @return A pointer to the configuration object.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SelectedDragPreviewStyle_Create() -> *mut ArkUI_SelectedDragPreviewStyle;
+}
+extern "C" {
+    #[doc = " @brief Dispose a configuration object for selected drag preview style.\n @param config Pointer to the configuration object to be disposed.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SelectedDragPreviewStyle_Dispose(config: *mut ArkUI_SelectedDragPreviewStyle);
+}
+extern "C" {
+    #[doc = " @brief Sets the color of background for selected drag preview style.\n @param config Pointer to the configuration object to be modified.\n @param color Background color.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SelectedDragPreviewStyle_SetColor(
+        config: *mut ArkUI_SelectedDragPreviewStyle,
         color: u32,
     );
 }
 extern "C" {
-    #[doc = " @brief Sets the color of counter when textField wants to exceed the maximum character count.\n\n @param config Pointer to the configuration object to be modified.\n @param color The color of the counter when textField wants to exceed the maximum character count, in 0xARGB format.\n @since 22"]
-    #[cfg(feature = "api-22")]
-    pub fn OH_ArkUI_ShowCounterConfig_SetCounterTextOverflowColor(
-        config: *mut ArkUI_ShowCounterConfig,
-        color: u32,
-    );
-}
-extern "C" {
-    #[doc = " @brief Gets the color of counter when textField hasn't wanted to exceed the maximum character count.\n\n @param config Pointer to the configuration object.\n @return Returns the color of the counter when textField hasn't wanted to exceed the maximum character count, in 0xARGB format.\n @since 22"]
-    #[cfg(feature = "api-22")]
-    pub fn OH_ArkUI_ShowCounterConfig_GetCounterTextColor(
-        config: *mut ArkUI_ShowCounterConfig,
+    #[doc = " @brief Gets the color of background for selected drag preview style.\n @param config Pointer to the configuration object.\n @return Returns the background color.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_SelectedDragPreviewStyle_GetColor(
+        config: *mut ArkUI_SelectedDragPreviewStyle,
     ) -> u32;
 }
 extern "C" {
-    #[doc = " @brief Gets the color of counter when textField wants to exceed the maximum character count.\n\n @param config Pointer to the configuration object.\n @return Returns the color of the counter when textField wants to exceed the maximum character count, in 0xARGB format.\n @since 22"]
-    #[cfg(feature = "api-22")]
-    pub fn OH_ArkUI_ShowCounterConfig_GetCounterTextOverflowColor(
-        config: *mut ArkUI_ShowCounterConfig,
-    ) -> u32;
+    #[doc = " @brief Create the ArkUI_PickerIndicatorStyle instance.\n\n @param type The picker selection indicator enumeration type.\n @return  ArkUI_PickerIndicatorStyle instance. If the instance returns a null pointer,\n         it indicates creation failure, and the reason for the failure may be that the address space is full or\n         the type not supported.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_PickerIndicatorStyle_Create(
+        type_: ArkUI_PickerIndicatorType,
+    ) -> *mut ArkUI_PickerIndicatorStyle;
+}
+extern "C" {
+    #[doc = " @brief Destroy the ArkUI_PickerIndicatorStyle instance.\n\n @param style The ArkUI_PickerIndicatorStyle instance to be destroyed.\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_PickerIndicatorStyle_Dispose(style: *mut ArkUI_PickerIndicatorStyle);
+}
+extern "C" {
+    #[doc = " @brief Set the parameters of background style.\n\n @param style The ArkUI_PickerIndicatorStyle instance.\n @param background The parameters of background style.\n @return Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if success.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} The parameters set need to be consistent with\n         the type of the created instance. If they are not consistent, this error code will be returned.\n         This interface only takes effect when the type is \"background\".\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_PickerIndicatorStyle_ConfigureBackground(
+        style: *mut ArkUI_PickerIndicatorStyle,
+        background: *mut ArkUI_PickerIndicatorBackground,
+    ) -> ArkUI_ErrorCode;
+}
+extern "C" {
+    #[doc = " @brief Set the parameters of divider style.\n\n @param style The ArkUI_PickerIndicatorStyle instance.\n @param divider The parameters of divider style.\n @return Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if success.\n         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} The parameters set need to be consistent with\n         the type of the created instance. If they are not consistent, this error code will be returned.\n         This interface only takes effect when the type is \"divider\".\n @since 23"]
+    #[cfg(feature = "api-23")]
+    pub fn OH_ArkUI_PickerIndicatorStyle_ConfigureDivider(
+        style: *mut ArkUI_PickerIndicatorStyle,
+        divider: *mut ArkUI_PickerIndicatorDivider,
+    ) -> ArkUI_ErrorCode;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4869,6 +5439,39 @@ pub const UI_FOCUS_AXIS_EVENT_ABS_HAT0X: _bindgen_ty_6 = 6;
 #[doc = " ABS_HAT0Y."]
 #[cfg(feature = "api-15")]
 pub const UI_FOCUS_AXIS_EVENT_ABS_HAT0Y: _bindgen_ty_6 = 7;
+#[doc = " Game controller RX-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_RX: _bindgen_ty_6 = 8;
+#[doc = " Game controller RY-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_RY: _bindgen_ty_6 = 9;
+#[doc = " Game controller THROTTLE-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_THROTTLE: _bindgen_ty_6 = 10;
+#[doc = " Game controller RUDDER-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_RUDDER: _bindgen_ty_6 = 11;
+#[doc = " Game controller WHEEL-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_WHEEL: _bindgen_ty_6 = 12;
+#[doc = " Game controller HAT1X-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT1X: _bindgen_ty_6 = 13;
+#[doc = " Game controller HAT1Y-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT1Y: _bindgen_ty_6 = 14;
+#[doc = " Game controller HAT2X-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT2X: _bindgen_ty_6 = 15;
+#[doc = " Game controller HAT2Y-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT2Y: _bindgen_ty_6 = 16;
+#[doc = " Game controller HAT3X-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT3X: _bindgen_ty_6 = 17;
+#[doc = " Game controller HAT3Y-axis.\n\n @since 23"]
+#[cfg(feature = "api-23")]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT3Y: _bindgen_ty_6 = 18;
 #[doc = " @brief Defines an enum for the axis types for focus axis events.\n\n @since 15"]
 #[cfg(feature = "api-15")]
 pub type _bindgen_ty_6 = u32;
