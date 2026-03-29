@@ -32,6 +32,7 @@ mod ohaudio;
 mod qos;
 mod raw;
 mod sensors;
+mod usb;
 mod vsync;
 
 pub use ability::*;
@@ -54,4 +55,5 @@ pub use ohaudio::*;
 pub use qos::*;
 pub use raw::*;
 pub use sensors::*;
+pub use usb::*;
 pub use vsync::*;
